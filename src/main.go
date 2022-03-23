@@ -2,29 +2,28 @@ package main
 
 import "fmt"
 
-func normalFuntion(message string) {
-	fmt.Println(message)
-}
-
-func tripeArgument(a, b int, c string) { // Asi es una buena practica en go.
-	fmt.Println(a, b, c)
-}
-
-func returnValue(a int) int { // Retorna un valor
-	return a * 2
-}
-
-func doubleReturn(a int) (c, d int) { // retorna 2 valores
-	return a, a * 2
-}
-
 func main() {
-	normalFuntion("Hola mundo")
-	tripeArgument(1, 4, "vamossss")
 
-	value := returnValue(2)
-	fmt.Println("value:", value)
+	// For condicional:
+	for i := 0; i < 10; i++ {
+		fmt.Println(i)
+	}
 
-	value1, _ := doubleReturn(2) // El "_" hace que no tome en cuenta el segundo valor.
-	fmt.Println("value1:", value1)
+	fmt.Printf("\n")
+
+	// For while:
+	counter := 10
+	for counter > 0 {
+		fmt.Println(counter)
+		counter--
+	}
+
+	fmt.Printf("\n")
+
+	// For forever:
+	counterForever := 0 // Es un ciclo infinito
+	for {
+		fmt.Println(counterForever)
+		counterForever++
+	}
 }
