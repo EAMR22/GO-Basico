@@ -1,29 +1,36 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"log"
+	"strconv"
+)
 
 func main() {
 
-	// For condicional:
-	for i := 0; i < 10; i++ {
-		fmt.Println(i)
+	valor1 := 1
+	valor2 := 2
+
+	if valor1 == 1 {
+		fmt.Println("Es 1")
+	} else {
+		fmt.Println("No es 1")
 	}
 
-	fmt.Printf("\n")
-
-	// For while:
-	counter := 10
-	for counter > 0 {
-		fmt.Println(counter)
-		counter--
+	// With and:
+	if valor1 == 1 && valor2 == 2 {
+		fmt.Println("Es verdad, AND")
 	}
 
-	fmt.Printf("\n")
-
-	// For forever:
-	counterForever := 0 // Es un ciclo infinito
-	for {
-		fmt.Println(counterForever)
-		counterForever++
+	// With or:
+	if valor1 == 0 || valor2 == 2 {
+		fmt.Println("Es verdad, OR")
 	}
+
+	// Convertir texto a numero:
+	value, err := strconv.Atoi("53")
+	if err != nil { // "nil" es una manera de go en decir que no existe ningun error.
+		log.Fatal(err)
+	}
+	fmt.Println("value:", value)
 }
