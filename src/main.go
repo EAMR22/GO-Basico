@@ -3,58 +3,26 @@ package main
 import "fmt"
 
 func main() {
-	// Declaracion de constantes
-	// const pi float64 = 3.14
-	// const pi2 = 3.1415
-	// fmt.Println("pi:", pi) // fmt es una impresion de pantalla en la terminal.
-	// fmt.Println("pi2:", pi2)
+	// Declaracion de variables:
+	helloMessage := "hello"
+	worldMessage := "world"
 
-	// declaracion de variables enteras
-	// base := 12 // El := Significa que esta variable no a sido declarada anteriormente.
-	// var altura int = 14
-	// var area int
-	// fmt.Println(base, area, altura)
+	// Println:
+	fmt.Println(helloMessage, worldMessage)
+	fmt.Println(helloMessage, worldMessage)
 
-	// Zero values
-	// var a int
-	// var b float64
-	// var c string
-	// var d bool
-	// fmt.Println(a, b, c, d)
+	// Printf:
+	nombre := "Platzi"
+	cursos := 500
+	fmt.Printf("%s tiene mas de %d cursos\n", nombre, cursos)
+	fmt.Printf("%v tiene mas de %v cursos\n", nombre, cursos)
+	// %s recibe un string, %d recibe un entero, %v cuando no se sabe que tipo de dato es, \n es un salto de linea.
 
-	// Area cuadrado
-	// const baseCuadrado = 10
-	// areaCuadrado := baseCuadrado * baseCuadrado
-	// fmt.Println("El area del cuadrado es:", areaCuadrado)
+	//Sprintf:
+	message := fmt.Sprintf("%s tiene mas de %d cursos\n", nombre, cursos) // Con Sprintf guarda la cadena en message
+	fmt.Println(message)
 
-	x := 50
-	y := 10
-
-	// Suma:
-	result := x + y
-	fmt.Println("Suma:", result)
-
-	// Resta:
-	result = x - y
-	fmt.Println("Resta:", result)
-
-	// Multiplicacion:
-	result = x * y
-	fmt.Println("Multiplicacion:", result)
-
-	// Division:
-	result = x / y
-	fmt.Println("Division:", result)
-
-	// Modulo:
-	result = x % y
-	fmt.Println("Modulo:", result)
-
-	// Incrementa:
-	x++
-	fmt.Println("Incremental:", x)
-
-	// Decremental:
-	x--
-	fmt.Println("Decremental:", x)
+	//Tipo de datos:
+	fmt.Printf("helloMessage: %T\n", helloMessage) // Con %T imprime el tipo de dato de la impresion.
+	fmt.Printf("Cursos: %T\n", cursos)
 }
