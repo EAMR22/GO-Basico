@@ -2,27 +2,29 @@ package main
 
 import "fmt"
 
-func main() {
-	// Declaracion de variables:
-	helloMessage := "hello"
-	worldMessage := "world"
-
-	// Println:
-	fmt.Println(helloMessage, worldMessage)
-	fmt.Println(helloMessage, worldMessage)
-
-	// Printf:
-	nombre := "Platzi"
-	cursos := 500
-	fmt.Printf("%s tiene mas de %d cursos\n", nombre, cursos)
-	fmt.Printf("%v tiene mas de %v cursos\n", nombre, cursos)
-	// %s recibe un string, %d recibe un entero, %v cuando no se sabe que tipo de dato es, \n es un salto de linea.
-
-	//Sprintf:
-	message := fmt.Sprintf("%s tiene mas de %d cursos\n", nombre, cursos) // Con Sprintf guarda la cadena en message
+func normalFuntion(message string) {
 	fmt.Println(message)
+}
 
-	//Tipo de datos:
-	fmt.Printf("helloMessage: %T\n", helloMessage) // Con %T imprime el tipo de dato de la impresion.
-	fmt.Printf("Cursos: %T\n", cursos)
+func tripeArgument(a, b int, c string) { // Asi es una buena practica en go.
+	fmt.Println(a, b, c)
+}
+
+func returnValue(a int) int { // Retorna un valor
+	return a * 2
+}
+
+func doubleReturn(a int) (c, d int) { // retorna 2 valores
+	return a, a * 2
+}
+
+func main() {
+	normalFuntion("Hola mundo")
+	tripeArgument(1, 4, "vamossss")
+
+	value := returnValue(2)
+	fmt.Println("value:", value)
+
+	value1, _ := doubleReturn(2) // El "_" hace que no tome en cuenta el segundo valor.
+	fmt.Println("value1:", value1)
 }
