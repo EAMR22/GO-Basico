@@ -2,27 +2,21 @@ package main
 
 import "fmt"
 
-func isPalindromo(text string) {
-	var textReverse string
-
-	for i := len(text) - 1; i >= 0; i-- {
-		textReverse += string(text[i])
-	}
-
-	if text == textReverse {
-		fmt.Println("Es palindromo")
-	} else {
-		fmt.Println("No es un palindromo")
-	}
-}
-
 func main() {
 
-	slice := []string{"hola", "que", "hace"}
+	m := make(map[string]int) // Con map estamos guardando un diccionario.
 
-	for i, valor := range slice {
-		fmt.Println(i, valor)
+	m["Jose"] = 14
+	m["Maria"] = 20
+
+	fmt.Println(m)
+
+	// Recorrer map:
+	for i, v := range m {
+		fmt.Println(i, v)
 	}
 
-	isPalindromo("amor a roma")
+	// Encontrar un valor:
+	value, ok := m["Maria"] // "ok" nos indica si un valor existe en el diccionario.
+	fmt.Println(value, ok)
 }
