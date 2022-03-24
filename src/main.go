@@ -2,21 +2,21 @@ package main
 
 import "fmt"
 
+// Structs: La forma de hacer clases con go.
+
+type car struct { // Con "type" nos indica que es un tipo de dato.
+	brand string
+	year  int
+}
+
 func main() {
 
-	m := make(map[string]int) // Con map estamos guardando un diccionario.
+	// Instanciamos un opjeto:
+	myCar := car{brand: "Porche", year: 2008}
+	fmt.Println(myCar)
 
-	m["Jose"] = 14
-	m["Maria"] = 20
-
-	fmt.Println(m)
-
-	// Recorrer map:
-	for i, v := range m {
-		fmt.Println(i, v)
-	}
-
-	// Encontrar un valor:
-	value, ok := m["Maria"] // "ok" nos indica si un valor existe en el diccionario.
-	fmt.Println(value, ok)
+	// Otra forma:
+	var otherCar car
+	otherCar.brand = "Lamborghini"
+	fmt.Println(otherCar)
 }
