@@ -1,36 +1,25 @@
 package main
 
-import (
-	"fmt"
-	"log"
-	"strconv"
-)
+import "fmt"
 
 func main() {
 
-	valor1 := 1
-	valor2 := 2
-
-	if valor1 == 1 {
-		fmt.Println("Es 1")
-	} else {
-		fmt.Println("No es 1")
+	switch modulo := 4 % 2; modulo {
+	case 0:
+		fmt.Println("Es par")
+	default:
+		fmt.Println("Es impar")
 	}
 
-	// With and:
-	if valor1 == 1 && valor2 == 2 {
-		fmt.Println("Es verdad, AND")
+	// Sin condicion:
+	value := 200
+	switch {
+	case value > 100:
+		fmt.Println("Es mayor a 100")
+	case value < 0:
+		fmt.Println("Es menora 0")
+	default:
+		fmt.Println("No cumple la condicion")
 	}
 
-	// With or:
-	if valor1 == 0 || valor2 == 2 {
-		fmt.Println("Es verdad, OR")
-	}
-
-	// Convertir texto a numero:
-	value, err := strconv.Atoi("53")
-	if err != nil { // "nil" es una manera de go en decir que no existe ningun error.
-		log.Fatal(err)
-	}
-	fmt.Println("value:", value)
 }
