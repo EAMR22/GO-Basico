@@ -1,41 +1,33 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"sync"
+	"time"
+)
 
-type figuras2D interface {
-	area() float64
-}
+func say(text string, wg *sync.WaitGroup) {
 
-type cuadrado struct {
-	base float64
-}
+	defer wg.Done()
 
-type rectangulo struct {
-	base   float64
-	altura float64
-}
-
-func (c cuadrado) area() float64 {
-	return c.base * c.base
-}
-
-func (r rectangulo) area() float64 {
-	return r.base * r.altura
-}
-
-func calcular(f figuras2D) {
-	fmt.Println("area", f.area()) // f.area recibe la interface
+	fmt.Println(text)
 }
 
 func main() {
-	myCuadrado := cuadrado{base: 2}
-	myRectangulo := rectangulo{base: 2, altura: 4}
+	var wg sync.WaitGroup // Acumula un conjunto de go routines y la va liberando poco a poco.
 
-	calcular(myCuadrado)
-	calcular(myRectangulo)
+	fmt.Println("Hello")
+	wg.Add(1) // Agregamos una go routine.
 
-	//Lista de interfaces:
+	go say("world", &wg)
 
-	myInterface := []interface{}{"Hola", 3, 4.56}
-	fmt.Println(myInterface)
+	wg.Wait() // Le decimos al main que espere a las go routines de WaitGroup a que finalice.
+
+	// Funcion anonima:
+
+	go func(text string) {
+		fmt.Println(text)
+	}("Adios")
+
+	time.Sleep(time.Second * 1) // No es recomendable
 }
