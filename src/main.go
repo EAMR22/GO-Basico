@@ -6,40 +6,17 @@ import (
 
 type pc struct {
 	ram   int
-	disk  int
 	brand string
+	disk  int
 }
 
-func (myPC pc) ping() { // myPC actua como puntero
-	fmt.Println(myPC.brand, "Pong")
-}
-
-func (myPC *pc) duplicateRAM() {
-	myPC.ram = myPC.ram * 2
+func (myPC pc) String() string {
+	return fmt.Sprintf("Tengo %d GB RAM, %d GB disco y es una %s", myPC.ram, myPC.disk, myPC.brand)
 }
 
 func main() {
 
-	a := 50
-	b := &a // Accedemos a la memoria de a.
-
-	fmt.Println(b)
-	fmt.Println(*b) // Accedemos al valor de la direccion de memoria.
-
-	*b = 100
-	fmt.Println(a) // Cambia el valor de "a" en 100.
-
-	myPC := pc{ram: 16, disk: 200, brand: "msi"}
-	fmt.Println(myPC)
-
-	myPC.ping()
-
-	fmt.Println(myPC)
-	myPC.duplicateRAM()
-
-	fmt.Println(myPC)
-	myPC.duplicateRAM()
-
+	myPC := pc{ram: 16, brand: "msi", disk: 100}
 	fmt.Println(myPC)
 
 }
